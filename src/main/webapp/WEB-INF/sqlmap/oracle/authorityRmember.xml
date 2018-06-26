@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="oracle_authorityRmember">
+	<delete id="delete" parameterType="Map">
+		delete from CIP_AUTHORITY_MEMBER
+		where MEMBER_SEQ in
+		<foreach collection ="MEMBER_SEQ" item = "item" index = "index" separator ="," open="(" close=")">
+			#{item}
+		</foreach>
+	</delete>	
+	
+	
+	<insert id="insert" parameterType="Map">
+	INSERT ALL
+		<foreach collection="AUTHORITY_ID" item="item" index="index">
+	     INTO CIP_AUTHORITY_MEMBER (
+			AUTHORITY_ID <!-- 권한 코드 --> 
+			, MEMBER_SEQ <!-- 회원_SEQ -->
+			, REGISTER_SEQ <!-- 등록자SEQ -->
+			, REGISTRY_DATE <!-- 등록일자 -->
+			, MODIFIER_SEQ <!-- 수정자_SEQ -->
+			, MODIFY_DATE <!-- 수정일자 -->
+		)
+		values
+		(
+			#{item} <!-- 권한 코드 --> 
+			, #{MEMBER_SEQ} <!-- 회원_SEQ -->
+			, #{REGISTER_SEQ} <!-- 등록자SEQ -->
+			, sysdate <!-- 등록일자 -->
+			, #{MODIFIER_SEQ} <!-- 수정자_SEQ -->
+			, sysdate <!-- 수정일자 -->
+		)
+		</foreach>
+		SELECT 1 FROM DUAL
+	</insert>
+</mapper>
