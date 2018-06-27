@@ -4,14 +4,21 @@ import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.clustering.project.util.FileUtil;
 
 
 public class CustomizaMethodArgumentResolver implements HandlerMethodArgumentResolver {
+	
+	@Autowired
+	private FileUtil fileUtil;
 
 	@Override
 	public boolean supportsParameter(MethodParameter methodParameter) {
@@ -33,7 +40,11 @@ public class CustomizaMethodArgumentResolver implements HandlerMethodArgumentRes
 				if(values != null) {
 					requestMap.put(key,(values.length >1)? values:values[0]);}
 				}
+			if(request instanceof MultipartHttpServletRequest) {
+				MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+				requestMap.put("attachFileList",fileUtil.setMultipartList(multipartRequest));
 			}
+		}
 		return requestMap;
 	}
 

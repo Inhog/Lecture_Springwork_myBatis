@@ -48,6 +48,10 @@
 										<p class="form-control-static">${resultMap.MEMBER_SEQ}</p>
                                     </div>
                                 </div>
+                                <hr>
+								<c:forEach items="${resultMap.attachFileList}" var="resultFileList" varStatus="loop">
+                                	<img src ="<c:url value='/resources/uploads/${resultFileList.PHYSICALFILE_NAME}'/>" alt="이미지" height="${resultFileList.ATTACHFILE_HEIGHT}" width="${resultFileList.ATTACHFILE_WIDTH}"/>
+                                </c:forEach>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->

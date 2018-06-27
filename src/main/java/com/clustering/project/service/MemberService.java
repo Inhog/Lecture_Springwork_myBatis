@@ -1,5 +1,6 @@
 package com.clustering.project.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class MemberService {
 
 		Object resultObject = dao.getObject(sqlMapId, dataMap);
 		
+		sqlMapId = "attachfile.read";
+		((Map<Object, Object>) resultObject).put("attachFileList",dao.getList(sqlMapId, dataMap));
+		
 		return resultObject;
 	}
 
@@ -42,7 +46,6 @@ public class MemberService {
 		paramMap.put("MEMBER_SEQ", uniqueSequence);
 		paramMap.put("REGISTER_SEQ", "UUID-1111-1111111");
 		paramMap.put("MODIFIER_SEQ", "UUID-1111-1111111");
-		
 		String sqlMapId = "member.merge";
 
 		Object resultKey = dao.saveObject(sqlMapId, paramMap);
@@ -50,6 +53,13 @@ public class MemberService {
 		sqlMapId = "oracle_authorityRmember.insert";
 		
 		resultKey = dao.saveObject(sqlMapId, paramMap);
+		List<Object> aaa = (List<Object>) paramMap.get("attachFileList");
+		
+		if(!(aaa.isEmpty())){
+		sqlMapId = "attachfile.merge";
+		
+		resultKey = dao.saveObject(sqlMapId, paramMap);
+		}
 		
 		sqlMapId = "member.read";
 		

@@ -16,10 +16,12 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form" method="POST" action="<c:url value='/member/merge' />">
+                                <!-- enctype을 설정해주면 Resolver에서 인지함. -->
+                                    <form role="form" enctype="multipart/form-data" method="POST" action="<c:url value='/member/merge' />">
 	                                    <input type="hidden" name="forwardView" value="/member/read" />
 	                                    <input type="hidden" name="MEMBER_SEQ" value="${resultMap.MEMBER_SEQ }" />
 	                                    <input type="hidden" name="ORGANIZATION_SEQ" value="UUID-11-CIPI9M" />
+	                                    <input type="hidden" name="AUTHORITY_ID" value="dummy_id" />
                                         <div class="form-group">
                                             <label>MEMBER_ID Text Input </label>
                                             <input class="form-control" type="text" name="MEMBER_ID" value="${resultMap.MEMBER_ID }">
@@ -44,11 +46,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label>권한 </label>
-                                            <input type="checkbox" name="AUTHORITY_ID" value="ROLE_GUEST">
+                                            <input type="checkbox" name="AUTHORITY_ID" value="ROLE_GUEST">ROLE_GUEST
                                             <input type="checkbox" name="AUTHORITY_ID" value="ROLE_MANAGER">
                                             <input type="checkbox" name="AUTHORITY_ID" value="ROLE_ADMIN">
                                             <input type="checkbox" name="AUTHORITY_ID" value="ROLE_USER">
-                                            
+                                            <hr>
+                                            <input type="file" name="ATTACHEDFILES"/>
+                                            <input type="file" name="ATTACHEDFILES02" />
                                         </div>
                                         <button type="submit" class="btn btn-default">${paramMap.action == 'update' ? 'Update' : 'Insert' } Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
