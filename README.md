@@ -12,3 +12,7 @@
     - MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
     
 이렇게 값을 가져온다.
+
+18.06.28 =================================
+
+Crawling , Pagination 을 적용함.
