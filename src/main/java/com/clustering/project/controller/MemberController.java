@@ -54,7 +54,9 @@ public class MemberController {
 		} else if ("delete".equalsIgnoreCase(action)) {
 			resultList = (List<Object>) service.deleteObject(paramMap);
 			viewName = "/member/list";
-		} 
+		} else if ("list_pagination".equalsIgnoreCase(action)) {
+			resultMap = (Map<String,Object>) service.getListPagination(paramMap);
+		}
 		
 		if(forwardView != null){
 			viewName = forwardView;

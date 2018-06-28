@@ -43,7 +43,7 @@
                 responsive: true
                ,"paging" : false
                ,"ordering" : false
-               ,"info":false
+               ,"info":false 
         });
 
         $("#selecctall").change(function() {

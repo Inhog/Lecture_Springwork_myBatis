@@ -41,7 +41,25 @@
 		from CIP_MEMBER
 		where MEMBER_SEQ = #{MEMBER_SEQ}
 	</select>
-
+	
+	<select id="listpagination" resultType="Map" parameterType ="Map">
+		select result.*
+		from(
+			select rownum as rn, member.*
+			from(
+				select *
+				from CIP_MEMBER
+				order by name 
+			) member
+		) result
+		where result.rn between #{pagination.pageBegin} and #{pagination.pageEnd}
+	</select>
+	
+	<select id="totalcount" resultType ="integer" parameterType="Map">
+		select count(MEMBER_SEQ)
+		from CIP_MEMBER
+	</select>
+	
 	<insert id="merge" parameterType="Map">
 		<selectKey keyProperty="MEMBER_SEQ" resultType="String" order="AFTER">	<!-- order="BEFORE" --> 
 			SELECT MEMBER_SEQ
