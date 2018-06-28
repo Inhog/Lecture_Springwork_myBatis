@@ -6,6 +6,7 @@
     
 <div id="page-wrapper">
 	<img src ="<c:url value='/resources/uploads/불닭볶음면.jpg'/>" alt="불닭볶음면 이미지" heigth="50" width="50"/>
+	<a href="<c:url value='/crawling/mitlist'/>"><button>Crawling</button></a>
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Dashboard</h1>

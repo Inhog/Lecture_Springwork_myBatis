@@ -41,6 +41,9 @@
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
                 responsive: true
+               ,"paging" : false
+               ,"ordering" : false
+               ,"info":false
         });
 
         $("#selecctall").change(function() {

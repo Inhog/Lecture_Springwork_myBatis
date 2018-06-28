@@ -29,7 +29,7 @@ public class FileUtil {
 		while(multiFileList.hasNext()) {
 			Map<Object,Object> fileMap = new HashMap<Object, Object>();
 			String fileName = multiFileList.next();
-			if(fileName != null) continue;
+			if(fileName == null) continue;
 			MultipartFile multiFile = multipartRequest.getFile(fileName);
 			String multiFileName = getNewFileName(multiFile.getOriginalFilename());
 			String attachFileName = "C:\\Users\\student\\git\\SanghunOh\\Lecture_SpringFramework\\src\\main\\webapp\\resources\\uploads\\" + multiFileName;

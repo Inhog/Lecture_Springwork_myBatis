@@ -53,13 +53,13 @@ public class MemberService {
 		sqlMapId = "oracle_authorityRmember.insert";
 		
 		resultKey = dao.saveObject(sqlMapId, paramMap);
-		List<Object> aaa = (List<Object>) paramMap.get("attachFileList");
 		
-		if(!(aaa.isEmpty())){
-		sqlMapId = "attachfile.merge";
-		
-		resultKey = dao.saveObject(sqlMapId, paramMap);
+		if(!((List<Object>) paramMap.get("attachFileList")).isEmpty()){			
+			sqlMapId = "attachfile.merge";
+			
+			resultKey = dao.saveObject(sqlMapId, paramMap);
 		}
+		
 		
 		sqlMapId = "member.read";
 		
