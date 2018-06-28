@@ -1,5 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-        <div id="page-wrapper">
+<script>
+$(document).ready(function(){
+	$("#layerModal").on("click",function(){
+		fn_selectContentsPop();
+	});
+});
+var fn_selectContentsPop = function(){
+	var url = "<c:url value='/member/edit?popupYN=Yes'/>";
+	common.layerPopup(url,"#myModal");
+};
+</script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">List</h1>
@@ -12,6 +22,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Advanced Tables
+                        <button type ="button" id ="layerModal">Modal Window</button>
+                        <div class="modal fade" id="myModal"></div>
                         </div>
                         <form role="form" method="POST" action="<c:url value='/member/delete'/>">
                         <button type ="submit">DELETE</button>
@@ -66,5 +78,3 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->

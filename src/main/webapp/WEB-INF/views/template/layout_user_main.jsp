@@ -13,7 +13,10 @@
 			<tiles:insertAttribute name="layout.left" />
       <!-- /.navbar-static-side -->
         </nav>
+        <div id="page-wrapper">
 		<tiles:insertAttribute name="layout.body" />
+        </div>
+        <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->	
 </body>

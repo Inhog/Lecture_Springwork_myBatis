@@ -31,7 +31,10 @@ public class CommonCodeController {
 
 	@Autowired
 	private CommonCodeService service;
-    
+	
+	@RequestMapping(value = "/commonCode/popup",method = { RequestMethod.GET, RequestMethod.POST })
+	public String popupMethod() { return "commonCode/popup"; }
+	
 	// Receive Parameters from Html Using @RequestParam Map with @PathVariable
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(@RequestParam MultiValueMap<Object, Object> paramMultiMap

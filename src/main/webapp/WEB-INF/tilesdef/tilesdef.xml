@@ -6,6 +6,7 @@
 
 <tiles-definitions>
 
+	
 	<!-- User template -->
 	<definition name="layout.user" template="/WEB-INF/views/template/layout_user_main.jsp">
 		<put-attribute name="layout.header"
@@ -15,6 +16,11 @@
 	    <put-attribute name="layout.top"
 			value="/WEB-INF/views/template/user_top.jsp" />
    	</definition>
+	
+	<definition name="*/*" template="/WEB-INF/views/template/layout_popup.jsp">
+		<put-attribute name="layout.title" value="{1}>{2}"/>
+		<put-attribute name="layout.body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+	</definition>
 	
 	<!-- home by user -->
 	<definition name="*" extends="layout.user">
@@ -27,6 +33,7 @@
 		<put-attribute name="layout.title" value="{1} > {2}" />
 		<put-attribute name="layout.body" value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>
+	
 	
 	<!-- organization >
 	<definition name="/organization/list" extends="layout.user">

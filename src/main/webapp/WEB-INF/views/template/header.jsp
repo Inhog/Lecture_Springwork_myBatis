@@ -36,6 +36,10 @@
 	<script type="text/javascript" src="<c:url value='/resources/js/jquery.dataTables.min.js' />"></script>
 	<script type="text/javascript" src="<c:url value='/resources/js/dataTables.bootstrap.min.js' />"></script>
 
+	
+	<!-- Modal JavaScript -->
+	<script type="text/javascript" src="<c:url value='/resources/js/common.js' />"></script>
+	
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {

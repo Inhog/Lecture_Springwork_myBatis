@@ -28,6 +28,7 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
+	
 	@RequestMapping(value = MAPPING+"{action}", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView actionMethod(MapParamCollector paramMethodMap, @PathVariable String action,
 			ModelAndView modelandView) {
@@ -38,6 +39,7 @@ public class MemberController {
 		
 		String viewName = MAPPING + action ;
 		String forwardView = (String) paramMap.get("forwardView") ;
+		
 		
 		
 		// divided depending on action value
@@ -56,6 +58,10 @@ public class MemberController {
 			viewName = "/member/list";
 		} else if ("list_pagination".equalsIgnoreCase(action)) {
 			resultMap = (Map<String,Object>) service.getListPagination(paramMap);
+		}
+		
+		if("Yes".equals((String)paramMap.get("popupYN"))){
+			viewName = viewName.replaceFirst("/", "");
 		}
 		
 		if(forwardView != null){

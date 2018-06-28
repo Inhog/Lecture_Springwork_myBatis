@@ -4,7 +4,6 @@
     <script src="<c:url value='/resources/js/morris.min.js' />"></script>
     <script src="<c:url value='/resources/js/morris-data.js' />"></script>
     
-<div id="page-wrapper">
 	<img src ="<c:url value='/resources/uploads/불닭볶음면.jpg'/>" alt="불닭볶음면 이미지" heigth="50" width="50"/>
 	<a href="<c:url value='/crawling/mitlist'/>"><button>Crawling</button></a>
     <div class="row">
@@ -546,5 +545,3 @@
         <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
-</div>
-<!-- /#page-wrapper -->
