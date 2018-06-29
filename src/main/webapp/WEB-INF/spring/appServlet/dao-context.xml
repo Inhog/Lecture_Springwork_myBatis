@@ -12,9 +12,6 @@
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-		<property name="minIdle" value="${jdbc.minIdle}"/>
-		<property name="maxIdle" value="${jdbc.maxIdle}"/>
-		<property name="maxActive" value="${jdbc.maxActive}"/>
 	</bean>
 
 	<bean id="propertyConfigurer"
@@ -26,16 +23,4 @@
 		</property>
 	</bean>
 
-    <bean id="organizationDao" class="com.clustering.project.dao.OrganizationDao">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-    
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="mapperLocations" value="WEB-INF/sqlmap/oracle/*.xml" />
-	</bean>
-
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSession" />
-	</bean>    
 </beans>
