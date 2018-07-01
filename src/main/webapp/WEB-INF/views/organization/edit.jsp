@@ -214,7 +214,7 @@
 										    <input class="form-control" type="text" name="PARENT_ORGANIZATION_SEQ" value="UUID-11-CIP7" readonly>
                                             <p class="help-block">using Parent UUID method with disabled</p>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="submit" class="btn btn-default">Submit Button!</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
                                     </form>
                                 </div>
